@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>orderForm</title>
+</head>
+<body>
+
+<form method="POST" th:action="@{/orders}" th:object="${tacoOrder}">
+    <div>
+        <h3>Deliver my taco masterpiece to...</h3>
+
+        <label for="deliveryName">Name: </label>
+        <input id="deliveryName" type="text" th:field="*{deliveryName}"/>
+
+        <label for="deliveryStreet">Street address: </label>
+        <input id="deliveryStreet" type="text" th:field="*{deliveryStreet}"/>
+
+        <label for="deliveryCity">City: </label>
+        <input id="deliveryCity" type="text" th:field="*{deliveryCity}"/>
+
+        <label for="deliveryState">State: </label>
+        <input id="deliveryState" type="text" th:field="*{deliveryState}"/>
+
+        <label for="deliveryZip">Zip code: </label>
+        <input id="deliveryZip" type="text" th:field="*{deliveryZip}"/>
+    </div>
+    <div>
+        <h3>Here's how I'll pay...</h3>
+
+        <label for="ccNumber">Credit Card #: </label>
+        <input id="ccNumber" type="text" th:field="*{ccNumber}"/>
+
+        <label for="ccExpiration">Expiration: </label>
+        <input id="ccExpiration" type="text" th:field="*{ccExpiration}"/>
+
+        <label for="ccCVV">CVV: </label>
+        <input id="ccCVV" type="text" th:field="*{ccCVV}"/>
+    </div>
+    <button type="submit">Submit order</button>
+</form>
+
+</body>
+</html>
