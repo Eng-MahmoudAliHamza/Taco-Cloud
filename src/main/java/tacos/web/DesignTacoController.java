@@ -1,4 +1,4 @@
-package tacos;
+package tacos.web;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
 import tacos.Taco;
+import tacos.TacoOrder;
 
 @Slf4j
 @Controller
