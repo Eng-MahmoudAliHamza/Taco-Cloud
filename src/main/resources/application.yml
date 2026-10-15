@@ -1,6 +1,6 @@
 spring:
-  application:
-    name: taco-cloud
-  datasource:
-    generate-unique-name: false
-    name: tacocloud
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: tacoclouddb
