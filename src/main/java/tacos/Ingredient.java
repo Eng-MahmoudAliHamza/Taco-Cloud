@@ -1,26 +1,40 @@
+
 package tacos;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Document(collection = "ingredients")
+@Entity
+@Table(name = "ingredients")
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Ingredient {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private Type type;
 
     public enum Type {
-        WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+        WRAP,
+        PROTEIN,
+        VEGGIES,
+        CHEESE,
+        SAUCE
     }
 }

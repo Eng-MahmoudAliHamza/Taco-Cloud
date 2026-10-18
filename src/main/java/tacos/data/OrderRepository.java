@@ -1,7 +1,18 @@
+
 package tacos.data;
 
-import org.springframework.data.repository.CrudRepository;
-import tacos.TacoOrder;
-public interface OrderRepository extends CrudRepository<TacoOrder, String> {
+import java.util.List;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import tacos.TacoOrder;
+
+public interface OrderRepository
+        extends JpaRepository<TacoOrder, Long> {
+
+    List<TacoOrder> findByUserIdOrderByPlacedAtDesc(
+            Long userId,
+            Pageable pageable
+    );
 }

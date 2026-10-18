@@ -1,6 +1,39 @@
+
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: tacoclouddb
+  datasource:
+    url: jdbc:h2:mem:tacoclouddb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: ${FACEBOOK_CLIENT_ID}
+            client-secret: ${FACEBOOK_CLIENT_SECRET}
+            scope:
+              - email
+              - public_profile
+
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-type: PKCS12
+    key-store-password: letmein
+    key-alias: tacocloud
+
+logging:
+  file:
+    path: /var/logs/
+    name: TacoCloud.log
+  level:
+    root: WARN
+    org.springframework.security: DEBUG

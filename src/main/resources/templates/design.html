@@ -26,11 +26,14 @@
     </header>
 
 
-    <form method="POST"
+
+    <form th:action="@{/design}"
+          method="post"
           th:object="${taco}"
           class="taco-form">
 
-        <div class="grid">
+
+    <div class="grid">
 
             <!-- Wrap -->
             <div class="ingredient-group">

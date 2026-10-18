@@ -13,9 +13,13 @@
   Unable to login. Check your username and password.
 </div>
 
+<div th:if="${param.logout}">
+  You have been logged out.
+</div>
+
 <p>
   New here?
-  Click <a th:href="@{/register}">here</a> to register.
+  <a th:href="@{/register}">Register here</a>
 </p>
 
 <form method="POST" th:action="@{/login}" id="loginForm">
@@ -27,8 +31,14 @@
   <input type="password" name="password" id="password" required>
   <br>
 
-  <input type="submit" value="Login">
+  <button type="submit">Login</button>
 </form>
+
+<hr>
+
+<a th:href="@{/oauth2/authorization/facebook}">
+  Sign in with Facebook
+</a>
 
 </body>
 </html>
